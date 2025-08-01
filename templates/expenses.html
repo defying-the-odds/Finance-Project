@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter Expenses</title>
+    <style>
+        body { font-family: Arial; max-width: 600px; margin: auto; padding-top: 30px; }
+        input { margin-bottom: 10px; width: 100%; padding: 6px; }
+        .other-group { margin-bottom: 20px; }
+        button { padding: 8px 16px; }
+    </style>
+</head>
+<body>
+    <h2>Enter Your Monthly Expenses</h2>
+    <form method="POST">
+        {% for item in expenses %}
+            <label>{{ item }} ($):</label>
+            <input type="number" name="{{ item }}" step="0.01"><br>
+        {% endfor %}
+
+        <h3>Other Expenses</h3>
+        <div class="other-group">
+            <input type="text" name="other_name" placeholder="Expense name">
+            <input type="number" name="other_amount" placeholder="Amount" step="0.01">
+        </div>
+
+        <div class="other-group">
+            <input type="text" name="other_name" placeholder="Expense name">
+            <input type="number" name="other_amount" placeholder="Amount" step="0.01">
+        </div>
+
+        <button type="submit">See Results</button>
+    </form>
+</body>
+</html>
