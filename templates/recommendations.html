@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Financial Recommendations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: auto;
+            padding-top: 30px;
+            background-color: #ffffff; /* optional for consistency */
+        }
+        h2, h3 {
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            background-color: #000000; /* black background */
+            color: #ffffff; /* white text */
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #333333;
+        }
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Personalized Recommendations</h2>
+    <p><strong>Monthly Income:</strong> ${{ income }}</p>
+    <p><strong>Needs:</strong> ${{ categorized['Needs'] }}</p>
+    <p><strong>Wants:</strong> ${{ categorized['Wants'] }}</p>
+    <p><strong>Leftover:</strong> ${{ leftover }}</p>
+
+    <h3>Advice</h3>
+    <ul>
+        {% for rec in recommendations %}
+            <li>{{ rec }}</li>
+        {% endfor %}
+    </ul>
+
+    <div class="center">
+        <a href="{{ url_for('results') }}" class="btn">Back to Results</a>
+    </div>
+</body>
+</html>
+
+
